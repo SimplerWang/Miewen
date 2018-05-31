@@ -9,6 +9,8 @@ import java.util.*
 
 class HomeActivity : AppCompatActivity() {
 
+
+    var timer = Timer();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -29,7 +31,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         var intent = Intent(this,MainActivity::class.java);
-        var timer = Timer();
+
         var timerTask = object : TimerTask(){
             override fun run() {
                 startActivity(intent);
@@ -42,6 +44,7 @@ class HomeActivity : AppCompatActivity() {
     fun toMain(view: View){
         var intent = Intent(this,MainActivity::class.java);
         startActivity(intent)
+        timer.cancel()
     }
 
 }
